@@ -1,33 +1,175 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    height: 100vh;
-    width: 100vw;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    display: flex;
-    flex-direction: row;
+
+body {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: auto auto;
+  height: 100vh;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
+
+/* LEFT: image column spans both rows */
 .background {
-    width: 34%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  position: relative;
+  overflow: hidden;
 }
-.back-logo{
-    height: 30vh;
-    width: 100%;
-    background-color: #596d48;
-    opacity: 50%;
-    position: absolute;
-    top: 35px;
-    left: 0px;
-    right: 0px;
-    object-fit: contain;
-    overflow: hidden;
+
+.background img[alt="background"] {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.info{
- width: fit-content;
- flex-grow: 1;
+
+.back-logo {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.back-logo img {
+  height: 60% !important;
+  width: auto !important;
+  object-fit: contain;
+}
+
+.back-logo h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+/* RIGHT: hero text */
+.info {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  padding: 48px 64px 24px;
+  background: #f5f6f8;
+}
+
+.info h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #1f2430;
+}
+
+/* RIGHT: white card — holds heading, form fields, and the button strip */
+.form {
+  grid-column: 2;
+  grid-row: 2;
+  background: #fff;
+  padding: 32px 64px 0;
+  border-top: 1px solid #e2e4e9;
+}
+
+.mes {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2b2f38;
+  margin-bottom: 24px;
+}
+
+.form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  padding-bottom: 32px;
+}
+
+.form form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form form label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #4a4f59;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form form input {
+  padding: 10px 12px;
+  border: 1px solid #c9ccd3;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #1f2430;
+  font-family: inherit;
+}
+.form form input:user-valid{
+  border-color:green ;
+}
+.form form input:user-invalid{
+  border-color:red ;
+}
+
+.form form input:focus {
+  outline: none;
+  border-color: #4a63e7;
+  box-shadow: 0 0 0 1px #4a63e7;
+}
+
+/* button strip — breaks out of .form's padding to read as a separate grey band */
+.button {
+  margin: 32px -64px 0;
+  padding: 24px 64px 32px;
+  background: #f5f6f8;
+  border-top: 1px solid #e2e4e9;
+}
+
+.button input[type="submit"] {
+  padding: 12px 28px;
+  background: #5d7052;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button input[type="submit"]:hover {
+  background: #4c5d43;
+}
+
+.errormessage {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #1f2430;
+}
+
+.errormessage a {
+  color: #5d7052;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.errormessage a:hover {
+  text-decoration: underline;
 }
