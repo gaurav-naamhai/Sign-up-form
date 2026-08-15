@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+body{
+    display: flex;
+    flex-direction: row;
+}
+.background {
+    width: 34%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.back-logo{
+    height: 30vh;
+    width: 100%;
+    background-color: #596d48;
+    opacity: 50%;
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    right: 0px;
+    object-fit: contain;
+    overflow: hidden;
+}
+.info{
+ width: fit-content;
+ flex-grow: 1;
+}
